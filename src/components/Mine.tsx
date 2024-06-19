@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import coin from "../assets/images/coin.webp";
+import LevelBar from "./LevelBar";
+import StatusBar from "./StatusBar";
 interface FloatingText {
   id: number;
   x: number;
@@ -7,7 +9,7 @@ interface FloatingText {
 }
 const Mine = () => {
   const maxEnergy = 400;
-  const [value, setValue] = useState(10000);
+  const [value, setValue] = useState(1000000);
   const [floatingTexts, setFloatingTexts] = useState<FloatingText[]>([]);
   const [nextId, setNextId] = useState(0);
   const [energy, setEnergy] = useState(maxEnergy);
@@ -42,8 +44,8 @@ const Mine = () => {
   }, []);
   return (
     <div className="w-full h-full flex flex-col justify-between py-4">
-      {/* <LevelBar/> */}
-      {/* <StatusBar/> */}
+      <LevelBar />
+      <StatusBar />
       <div className="w-full flex items-center justify-center">
         <span className="font-bold text-[60px]">{value.toLocaleString()}</span>
       </div>
@@ -59,7 +61,6 @@ const Mine = () => {
         <div className="flex w-full items-center justify-between">
           <span className=" text-[15px]"> Energy Ziad</span>
           <span className=" text-[15px] font-semibold">
-            {" "}
             {energy} / {maxEnergy}
           </span>
         </div>
